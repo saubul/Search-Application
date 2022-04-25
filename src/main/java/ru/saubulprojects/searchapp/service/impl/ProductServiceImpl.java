@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import ru.saubulprojects.searchapp.model.Product;
 import ru.saubulprojects.searchapp.repository.ProductRepository;
+import ru.saubulprojects.searchapp.service.ProductService;
 
 @Service
 public class ProductServiceImpl implements ProductService{
@@ -19,6 +20,11 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public List<Product> searchProducts(String query) {
 		return productRepo.searchProducts(query);
+	}
+
+	@Override
+	public Product createProduct(Product product) {
+		return productRepo.save(product);
 	}
 	
 }
